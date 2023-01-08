@@ -18,7 +18,7 @@ egyet, akkor a kölcsönzés időpontja legyen az aktuális időpont, a visszaho
 Amennyiben a gép már kölcsönözve van, akkor a metódus dobjon `AlreadyRentedException`-t, amit az `IllegalStateException`
 -ből származtatunk.
 
-A `calculateRentalFee` metódus kiszámolja a kölcsönzés díját a következő szabályok szerint:
+A `calculateRentalFee` metódus kiszámolja a kölcsönzés jelen pillanatban fizetendő díját a következő szabályok szerint:
 a kölcsönzés óradíj alapú, minden megkezdett óra egésznek számít,
 az első három óra díja teljes díj,
 az utána következő órákra a teljes díj 80%-a,

@@ -1,4 +1,3 @@
-/*
 package oop;
 
 import org.junit.jupiter.api.Test;
@@ -95,4 +94,4 @@ class HandyToolTest {
         handyTool.giveBack();
 
         assertEquals(44800, handyTool.getTotalIncome());}
-}*/
+}
