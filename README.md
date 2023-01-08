@@ -9,8 +9,8 @@ gépek attribútumaként pedig egy szorzószámot, ami megadja, hogy az alapdíj
 
 Hozd létre a `RentableTool` ősosztályt, amit ne lehessen példányosítani. Konstruktorában az azonosítóját, a nevét és a 
 kölcsönzési díj szorzóját várja. Ezen kívül van LocalDateTime típusú `rentFrom` és `rentTo` attribútuma. Ezek a 
-kölcsönzés kezdetét és várható végét jelölik. Van még egy totalIncome attribútuma, amely a gép által eddig
-bevételként szereplő összeget tárolja. Hozz létre az attribútumokhoz gettereket is.
+kölcsönzés kezdetét és várható végét jelölik. Van még egy `totalIncome` attribútuma, amely a gép által eddig
+bevételként szereplő összeget tárolja. Hozz létre az attribútumokhoz gettereket is!
 
 A `rent` metódus beállítja a `rentFrom` és `rentTo` attribútumokat. A metódust kétféle paraméterlistával lehessen hívni:
 ha két időértéket adunk meg, akkor az első a kölcsönzési időpont, a második a visszahozás várható időpontja. Ha csak 
@@ -37,9 +37,8 @@ kedvezmények nélkül.
 
 A `RentalCompany` osztály attribútuma egy `RentableTool` elemeket tartalmazó lista, a listát az `addTool` metódussal 
 lehet feltölteni ill. bővíteni. A `findToolById` metódus azonosító alapján visszadja az adott objektum referenciáját. A
-`listFreeTools` metódus visszaadja a jelen pillanatban kölcsönözhető gépeket tartalmazó listát. 
-A `calculateTotalIncome` metódus visszaadja a gépek által eddig bevételként szerzett összeget.A listFreeTools metódus
-visszaadja a jelen pillanatban kölcsönözhető gépeket tartalmazó listát (a "tool" objektumok eredeti referenciájával).
+`listFreeTools` metódus visszaadja a jelen pillanatban kölcsönözhető gépeket tartalmazó listát (a "tool" objektumok 
+eredeti referenciájával). A `calculateTotalIncome` metódus visszaadja a gépek által eddig bevételként szerzett összeget.
 A `listExpiredToolsToFileAsCsv(Path path)` metódus a paraméterül kapott fájlba írja a lejárt kölcsönzéseket. Ha a fájl
 már létezik, írja felül. A fájl első sorának tartalma: `id;name;rentTo`. A következő sorokban a lejárt kölcsönzések
 azonosítója, neve és várható visszahozás (múltbeli) ideje szerepeljen, például:   
@@ -62,7 +61,7 @@ az SQL szerver által generált azonosító, a versenyző álneve, a hónap sors
 Ha az adott feladat nem lett beküldve, azt a hozzá tartozó rekord hiánya jelzi. A `Rating` legyen példányosítható 
 azonosítóval és anélkül is!
 
-A `RatingRepository` osztály tartalmazza az adatbázis műveleteket. A `save` metódus egy `Rating` objektumot ment az 
+A `RatingRepository` osztály tartalmazza az adatbázisműveleteket. A `save` metódus egy `Rating` objektumot ment az 
 adatbázisba, és visszaadja az általa generált azonosítót. A `getMonthFullScore` metódus egy versenyző álneve és a 
 hónap alapján visszaadja a beküldött feladatok összesített pontszámát.
 A `getRatingsByProblem` a  hónap és a feladat sorszáma alapján map-ként visszadja a megoldást beküldők nevét és az 
@@ -71,13 +70,13 @@ adott feladatban elért pontjukat.
 A `RatingService` osztály adattagja egy `RatingRepository` példány. A `save` metódus a `RatingRepository` azonos 
 nevű metódusát hívja meg úgy, hogy a `RatingRepository``save` metódusának meghívása előtt ellenőrizze, hogy a paraméterül
 kapott `Rating` objektum valid-e, illetve hogy a versenyző az előző hónapban kapott-e pontot. (A verseny szabálya szerint 
-a versenyzőnek minden hónapban be kell küldenie legalább egy feladat megoldását, és a megoldás pontszáma nem lehet 
+a versenyzőnek minden hónapban be kell küldenie legalább egy feladat megoldását, és a megoldások összpontszáma nem lehet 
 nulla.) Ha a feltételek nem teljesülnek, a visszaadott id érték legyen -1, egyébként pedig hívja meg a `RatingRepository` 
 `save` metódusát. A verseny szeptembertől következő év júniusig tart, így a `RatingService` `save` metódusának nem kell 
 ellenőriznie a 9. hónapban, illetve az 1. hónapot értelemszerűen a 12. előzi meg.
-A `getRatingsByTask` metódus a legyen delegálva a `RatingRepository` felé.
+A `getRatingsByTask` metódus legyen delegálva a `RatingRepository` felé.
 Írjunk egy `getRatingsByTaskAsCsv` metódust, amely a `getRatingsByTask` metódus segítségével visszaadja a
-megoldást beküldők nevét és az adott feladatban elért pontjukat stringként.  Egy sorban a versenyző nicknevete és a 
+megoldást beküldők nevét és az adott feladatban elért pontjukat stringként.  Egy sorban a versenyző nickneve és a 
 pontszáma szerepeljen pontosvesszővel elválasztva. A fejlécsor "NAME;POINTS" legyen. 
 A `getMonthFullScore` metódus legyen delegálva a `RatingRepository` felé úgy, hogy ha a visszatérési érték null, akkor
-0-t adjon vissza.
+nullát adjon vissza.
