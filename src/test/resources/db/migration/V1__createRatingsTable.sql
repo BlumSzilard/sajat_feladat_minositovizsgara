@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `ratings` (
+`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+`nickname` VARCHAR(50) NOT NULL,
+`month` INT(10) NOT NULL,
+`task_nr` int(10) NOT NULL,
+`rating` INT(10) NOT NULL,
+PRIMARY KEY (`id`)
+);
