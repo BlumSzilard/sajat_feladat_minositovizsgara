@@ -64,7 +64,7 @@ azonosítóval és anélkül is!
 A `RatingRepository` osztály tartalmazza az adatbázisműveleteket. A `save` metódus egy `Rating` objektumot ment az 
 adatbázisba, és visszaadja az általa generált azonosítót. A `getMonthFullScore` metódus egy versenyző álneve és a 
 hónap alapján visszaadja a beküldött feladatok összesített pontszámát.
-A `getRatingsByProblem` a  hónap és a feladat sorszáma alapján map-ként visszadja a megoldást beküldők nevét és az 
+A `getRatingsByTask` a  hónap és a feladat sorszáma alapján map-ként visszadja a megoldást beküldők nevét és az 
 adott feladatban elért pontjukat.
 
 A `RatingService` osztály adattagja egy `RatingRepository` példány. A `save` metódus a `RatingRepository` azonos 
