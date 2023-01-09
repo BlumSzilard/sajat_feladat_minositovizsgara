@@ -1,4 +1,3 @@
-/*
 package datahandling;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -17,16 +16,18 @@ class RatingTest {
     @Test
     void testContructorWithoutId(){
         Rating rating = new Rating("Pallas_Athéné",9,1,10);
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> {rating.getId();});
+        assertNull(rating.getId());
+
     }
 
     @Test
     void testGetters(){
         Rating rating = new Rating(0L,"Ede",9,1,10);
+        assertEquals(0L, rating.getId());
         assertEquals("Ede", rating.getNickname());
         assertEquals(9, rating.getMonth());
         assertEquals(1, rating.getTaskNr());
         assertEquals(10, rating.getRating());
     }
 
-}*/
+}
