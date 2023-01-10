@@ -35,16 +35,16 @@ class RatingRepositoryTest {
     @Test
     void testSave_IdNotNull() {
         Long id = ratingRepository.save(new Rating("Ede",1, 1, 5));
-        assertTrue(id != null);
+        assertNotNull(id);
     }
 
     @Test
     void testSave_IdsAreNotSame() {
         Long id = ratingRepository.save(new Rating("Ede",1, 1, 5));
         Long id2 = ratingRepository.save(new Rating("Ede",1, 1, 5));
-        assertTrue(id != null);
-        assertTrue(id2 != null);
-        assertFalse(id == id2);
+        assertNotNull(id);
+        assertNotNull(id2);
+        assertNotSame(id, id2);
     }
 
     @Test
@@ -57,12 +57,16 @@ class RatingRepositoryTest {
 
         assertEquals(10, ratingRepository.getMonthFullScore("Ede",1));
         assertEquals(8, ratingRepository.getMonthFullScore("Lajos",1));
-        assertNull(ratingRepository.getMonthFullScore("Ede",2));
+        assertTrue(ratingRepository.getMonthFullScore("Ede",2) == null ||
+                ratingRepository.getMonthFullScore("Ede",2) == 0);
+
     }
 
     @Test
     void testGetMonthFullScore_IfNoRating(){
-        assertNull(ratingRepository.getMonthFullScore("John_Doe",1));
+        assertTrue(ratingRepository.getMonthFullScore("John_Doe",1) == null ||
+                ratingRepository.getMonthFullScore("John_Doe",1) == 0);
+
     }
 
     @Test

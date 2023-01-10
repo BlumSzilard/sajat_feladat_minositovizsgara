@@ -1,6 +1,5 @@
 package datahandling;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +26,7 @@ class RatingTest {
         assertEquals("Ede", rating.getNickname());
         assertEquals(9, rating.getMonth());
         assertEquals(1, rating.getTaskNr());
-        assertEquals(10, rating.getRating());
+        assertEquals(10, rating.getRating_value());
     }
 
 }
