@@ -73,7 +73,7 @@ class RentalCompanyTest {
         try {
             rentalCompany.listExpiredToolsToFileAsCsv(Path.of("src","test","resources","expired.csv"));
         } catch (Exception e) {
-            fail("Exception thrown", e);
+            fail("Exception thrown while writing .csv file during test ", e);
         }
 
         try {
@@ -85,7 +85,7 @@ class RentalCompanyTest {
             assertEquals("A2;concrete mixer;2020-01-03T08:00", output.get(2));
 
         } catch (Exception e) {
-            fail("Exception thrown", e);
+            fail("Exception thrown while reading the .csv file produced by test ", e);
         }
     }
 
@@ -110,7 +110,7 @@ class RentalCompanyTest {
         try {
             rentalCompany.listExpiredToolsToFileAsCsv(Path.of("src","test","resources","expired.csv"));
         } catch (Exception e) {
-            fail("Exception thrown", e);
+            fail("Exception thrown while writing .csv file during test ", e);
         }
 
         try {
@@ -120,7 +120,7 @@ class RentalCompanyTest {
 
 
         } catch (Exception e) {
-            fail("Exception thrown", e);
+            fail("Exception thrown while reading the .csv file produced by test ", e);
         }
     }
 

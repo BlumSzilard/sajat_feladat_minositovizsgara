@@ -72,7 +72,6 @@ class RatingServiceTest {
         Long id2 = ratingService.save(new datahandlingJdbc.Rating("Ede",10, 1, -1));
         Long id3 = ratingService.save(new datahandlingJdbc.Rating("Ede",11, 1,42));
 
-
         assertTrue(id < 0);
         assertTrue(id2 < 0);
         assertTrue(id3 < 0);
